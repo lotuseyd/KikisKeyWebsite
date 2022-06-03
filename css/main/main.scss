@@ -1,0 +1,517 @@
+$colorePrimario: #333333;
+$coloreSecondario: #e5b62e;
+
+$dimTesto: clamp(0.9rem, 1.2vw, 1.1rem);
+
+@font-face {
+  font-family: forwardFont;
+  src: url("./../../assets/fonts/forwardFont.TTF");
+}
+
+:root {
+  --displayHomeDot: none;
+  --displayAboutUsDot: none;
+  --displayContactsDot: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: forwardFont;
+  font-size: $dimTesto;
+  min-width: 300px;
+  overflow-x: hidden;
+
+  a {
+    text-decoration: none;
+    color: $colorePrimario;
+  }
+}
+
+/**********************************************************************/
+/***** loder screen *****/
+
+.loaderScreen {
+  position: fixed;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 6;
+}
+
+#loader {
+  animation: spin 1s linear infinite;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -5px;
+}
+
+@keyframes spin {
+  0% {
+    box-shadow: 0px -30px $colorePrimario, 10px -30px $colorePrimario,
+      20px -20px $colorePrimario, 30px -10px $colorePrimario,
+      30px 0px $colorePrimario, 30px 10px $colorePrimario,
+      20px 20px $colorePrimario, 10px 30px $colorePrimario, 0px 30px transparent,
+      -10px 30px transparent, -20px 20px transparent, -30px 10px transparent,
+      -30px 0px transparent, -30px -10px transparent, -20px -20px transparent,
+      -10px -30px transparent;
+  }
+  6.25% {
+    box-shadow: 0px -30px transparent, 10px -30px $colorePrimario,
+      20px -20px $colorePrimario, 30px -10px $colorePrimario,
+      30px 0px $colorePrimario, 30px 10px $colorePrimario,
+      20px 20px $colorePrimario, 10px 30px $colorePrimario,
+      0px 30px $colorePrimario, -10px 30px transparent, -20px 20px transparent,
+      -30px 10px transparent, -30px 0px transparent, -30px -10px transparent,
+      -20px -20px transparent, -10px -30px transparent;
+  }
+  12.5% {
+    box-shadow: 0px -30px transparent, 10px -30px transparent,
+      20px -20px $colorePrimario, 30px -10px $colorePrimario,
+      30px 0px $colorePrimario, 30px 10px $colorePrimario,
+      20px 20px $colorePrimario, 10px 30px $colorePrimario,
+      0px 30px $colorePrimario, -10px 30px $colorePrimario,
+      -20px 20px transparent, -30px 10px transparent, -30px 0px transparent,
+      -30px -10px transparent, -20px -20px transparent, -10px -30px transparent;
+  }
+  18.75% {
+    box-shadow: 0px -30px transparent, 10px -30px transparent,
+      20px -20px transparent, 30px -10px $colorePrimario,
+      30px 0px $colorePrimario, 30px 10px $colorePrimario,
+      20px 20px $colorePrimario, 10px 30px $colorePrimario,
+      0px 30px $colorePrimario, -10px 30px $colorePrimario,
+      -20px 20px $colorePrimario, -30px 10px transparent, -30px 0px transparent,
+      -30px -10px transparent, -20px -20px transparent, -10px -30px transparent;
+  }
+  25% {
+    box-shadow: 0px -30px transparent, 10px -30px transparent,
+      20px -20px transparent, 30px -10px transparent, 30px 0px $colorePrimario,
+      30px 10px $colorePrimario, 20px 20px $colorePrimario,
+      10px 30px $colorePrimario, 0px 30px $colorePrimario,
+      -10px 30px $colorePrimario, -20px 20px $colorePrimario,
+      -30px 10px $colorePrimario, -30px 0px transparent, -30px -10px transparent,
+      -20px -20px transparent, -10px -30px transparent;
+  }
+  31.25% {
+    box-shadow: 0px -30px transparent, 10px -30px transparent,
+      20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+      30px 10px $colorePrimario, 20px 20px $colorePrimario,
+      10px 30px $colorePrimario, 0px 30px $colorePrimario,
+      -10px 30px $colorePrimario, -20px 20px $colorePrimario,
+      -30px 10px $colorePrimario, -30px 0px $colorePrimario,
+      -30px -10px transparent, -20px -20px transparent, -10px -30px transparent;
+  }
+  37.5% {
+    box-shadow: 0px -30px transparent, 10px -30px transparent,
+      20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+      30px 10px transparent, 20px 20px $colorePrimario,
+      10px 30px $colorePrimario, 0px 30px $colorePrimario,
+      -10px 30px $colorePrimario, -20px 20px $colorePrimario,
+      -30px 10px $colorePrimario, -30px 0px $colorePrimario,
+      -30px -10px $colorePrimario, -20px -20px transparent,
+      -10px -30px transparent;
+  }
+  43.75% {
+    box-shadow: 0px -30px transparent, 10px -30px transparent,
+      20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+      30px 10px transparent, 20px 20px transparent, 10px 30px $colorePrimario,
+      0px 30px $colorePrimario, -10px 30px $colorePrimario,
+      -20px 20px $colorePrimario, -30px 10px $colorePrimario,
+      -30px 0px $colorePrimario, -30px -10px $colorePrimario,
+      -20px -20px $colorePrimario, -10px -30px transparent;
+  }
+  50% {
+    box-shadow: 0px -30px transparent, 10px -30px transparent,
+      20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+      30px 10px transparent, 20px 20px transparent, 10px 30px transparent,
+      0px 30px $colorePrimario, -10px 30px $colorePrimario,
+      -20px 20px $colorePrimario, -30px 10px $colorePrimario,
+      -30px 0px $colorePrimario, -30px -10px $colorePrimario,
+      -20px -20px $colorePrimario, -10px -30px $colorePrimario;
+  }
+  56.25% {
+    box-shadow: 0px -30px $colorePrimario, 10px -30px transparent,
+      20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+      30px 10px transparent, 20px 20px transparent, 10px 30px transparent,
+      0px 30px transparent, -10px 30px $colorePrimario,
+      -20px 20px $colorePrimario, -30px 10px $colorePrimario,
+      -30px 0px $colorePrimario, -30px -10px $colorePrimario,
+      -20px -20px $colorePrimario, -10px -30px $colorePrimario;
+  }
+  62.5% {
+    box-shadow: 0px -30px $colorePrimario, 10px -30px $colorePrimario,
+      20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+      30px 10px transparent, 20px 20px transparent, 10px 30px transparent,
+      0px 30px transparent, -10px 30px transparent, -20px 20px $colorePrimario,
+      -30px 10px $colorePrimario, -30px 0px $colorePrimario,
+      -30px -10px $colorePrimario, -20px -20px $colorePrimario,
+      -10px -30px $colorePrimario;
+  }
+  68.75% {
+    box-shadow: 0px -30px $colorePrimario, 10px -30px $colorePrimario,
+      20px -20px $colorePrimario, 30px -10px transparent, 30px 0px transparent,
+      30px 10px transparent, 20px 20px transparent, 10px 30px transparent,
+      0px 30px transparent, -10px 30px transparent, -20px 20px transparent,
+      -30px 10px $colorePrimario, -30px 0px $colorePrimario,
+      -30px -10px $colorePrimario, -20px -20px $colorePrimario,
+      -10px -30px $colorePrimario;
+  }
+  75% {
+    box-shadow: 0px -30px $colorePrimario, 10px -30px $colorePrimario,
+      20px -20px $colorePrimario, 30px -10px $colorePrimario,
+      30px 0px transparent, 30px 10px transparent, 20px 20px transparent,
+      10px 30px transparent, 0px 30px transparent, -10px 30px transparent,
+      -20px 20px transparent, -30px 10px transparent, -30px 0px $colorePrimario,
+      -30px -10px $colorePrimario, -20px -20px $colorePrimario,
+      -10px -30px $colorePrimario;
+  }
+  81.25% {
+    box-shadow: 0px -30px $colorePrimario, 10px -30px $colorePrimario,
+      20px -20px $colorePrimario, 30px -10px $colorePrimario,
+      30px 0px $colorePrimario, 30px 10px transparent, 20px 20px transparent,
+      10px 30px transparent, 0px 30px transparent, -10px 30px transparent,
+      -20px 20px transparent, -30px 10px transparent, -30px 0px transparent,
+      -30px -10px $colorePrimario, -20px -20px $colorePrimario,
+      -10px -30px $colorePrimario;
+  }
+  87.5% {
+    box-shadow: 0px -30px $colorePrimario, 10px -30px $colorePrimario,
+      20px -20px $colorePrimario, 30px -10px $colorePrimario,
+      30px 0px $colorePrimario, 30px 10px $colorePrimario, 20px 20px transparent,
+      10px 30px transparent, 0px 30px transparent, -10px 30px transparent,
+      -20px 20px transparent, -30px 10px transparent, -30px 0px transparent,
+      -30px -10px transparent, -20px -20px $colorePrimario,
+      -10px -30px $colorePrimario;
+  }
+  93.75% {
+    box-shadow: 0px -30px $colorePrimario, 10px -30px $colorePrimario,
+      20px -20px $colorePrimario, 30px -10px $colorePrimario,
+      30px 0px $colorePrimario, 30px 10px $colorePrimario,
+      20px 20px $colorePrimario, 10px 30px transparent, 0px 30px transparent,
+      -10px 30px transparent, -20px 20px transparent, -30px 10px transparent,
+      -30px 0px transparent, -30px -10px transparent, -20px -20px transparent,
+      -10px -30px $colorePrimario;
+  }
+  100% {
+    box-shadow: 0px -30px $colorePrimario, 10px -30px $colorePrimario,
+      20px -20px $colorePrimario, 30px -10px $colorePrimario,
+      30px 0px $colorePrimario, 30px 10px $colorePrimario,
+      20px 20px $colorePrimario, 10px 30px $colorePrimario, 0px 30px transparent,
+      -10px 30px transparent, -20px 20px transparent, -30px 10px transparent,
+      -30px 0px transparent, -30px -10px transparent, -20px -20px transparent,
+      -10px -30px transparent;
+  }
+}
+
+/**********************************************************************/
+/***** navbar *****/
+
+.navBar {
+  border-bottom: 1px dashed #737373;
+  color: $colorePrimario;
+  padding: 0 15%;
+}
+
+.contenutoNavBar {
+  display: flex;
+  line-height: 60px;
+}
+
+.logo {
+  display: inline-block;
+  background-image: url(./../../assets/img/main/animatedLogo.gif);
+  height: 64px;
+  width: 64px;
+}
+
+.tabs {
+  span {
+    position: relative;
+  }
+
+  span::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: $coloreSecondario;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  span:nth-child(1)::after {
+    display: var(--displayHomeDot);
+  }
+  span:nth-child(2)::after {
+    display: var(--displayAboutUsDot);
+  }
+  span:nth-child(3)::after {
+    display: var(--displayContactsDot);
+  }
+}
+
+.mainContenutoNavBar {
+  display: inline-block;
+  border-left: 1px dashed #737373;
+  width: 100%;
+
+  span {
+    cursor: pointer;
+    margin-right: 30px;
+  }
+}
+
+.contenitoreMenuLogin {
+  border-right: 1px dashed #737373;
+}
+
+.login {
+  flex-shrink: 1;
+  a {
+    border: solid 1px $colorePrimario;
+    padding: 3px 20px;
+  }
+}
+
+.menu {
+  position: relative;
+  display: none;
+  z-index: 5;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  transform: scale(0.7);
+  cursor: pointer;
+}
+
+label span {
+  background: $colorePrimario;
+  height: 7px;
+  margin: 7px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.menuBar:nth-of-type(1) {
+  width: 50%;
+}
+
+.menuBar:nth-of-type(2) {
+  width: 100%;
+}
+
+.menuBar:nth-of-type(3) {
+  width: 75%;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.menuInput:checked ~ .menuBar:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(8px, 0px);
+}
+
+.menuInput:checked ~ .menuBar:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+
+.menuInput:checked ~ .menuBar:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(30px, -11px) rotatez(45deg);
+}
+
+.overlayMenu {
+  position: fixed;
+  display: none;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+}
+
+.tabsOverlayMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 20px;
+
+  span {
+    padding: 10px;
+  }
+
+  span:nth-child(4) {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .navBar {
+    padding: 0 7.5%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .menu {
+    display: block;
+  }
+  .login,
+  .tabs {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navBar {
+    padding: 0;
+  }
+}
+
+/**********************************************************************/
+/***** scrollbar *****/
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9d9d9d;
+}
+
+/**********************************************************************/
+/***** footer *****/
+.footer {
+  position: relative;
+  background-color: $colorePrimario;
+  color: #ffffff;
+  height: auto;
+  padding-top: 50px;
+  border-top: solid $coloreSecondario 3px;
+}
+
+.contenutoFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenitoreSocial {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgDenina {
+  height: 150px;
+  width: 150px;
+  background-image: url(./../../assets/img/main/denina.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 75px;
+  cursor: pointer;
+  box-shadow: 1px 4px 34px -9px #00cfff;
+}
+
+.imgInstagram {
+  height: 64px;
+  width: 64px;
+  background-image: url(./../../assets/img/main/instagram.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 75px;
+  cursor: pointer;
+}
+
+.imgGithub {
+  height: 64px;
+  width: 64px;
+  background-image: url(./../../assets/img/main/github.png);
+  background-repeat: no-repeat;
+  margin-right: 75px;
+  cursor: pointer;
+}
+
+.imgYoutube {
+  height: 64px;
+  width: 64px;
+  background-image: url(./../../assets/img/main/youtube.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.contenitoreCopyright {
+  padding: 20px;
+
+  background-color: $coloreSecondario;
+  color: $colorePrimario;
+  text-align: center;
+  position: relative;
+}
+
+.jagged-border {
+  margin-top: 50px;
+  position: relative;
+  width: 100%;
+  height: 10px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 1px 2px);
+}
+.jagged-border:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  height: 10px;
+}
+.lightgray-bg {
+  background: $coloreSecondario;
+}
+.lightgray-bg:before {
+  background: linear-gradient(
+      45deg,
+      transparent 33.333%,
+      $coloreSecondario 33.333%,
+      $coloreSecondario 66.667%,
+      transparent 66.667%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 33.333%,
+      $coloreSecondario 33.333%,
+      $coloreSecondario 66.667%,
+      transparent 66.667%
+    );
+  background-size: 20px 40px;
+}
+
+@media (max-width: 575.98px) {
+  .imgInstagram {
+    margin-right: 40px;
+  }
+
+  .imgGithub {
+    margin-right: 40px;
+  }
+}
